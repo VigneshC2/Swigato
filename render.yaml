@@ -1,0 +1,79 @@
+services:
+  - type: web
+    name: fd-auth
+    runtime: node
+    plan: free
+    rootDir: backend/auth-service
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 1d
+      - key: CLIENT_URL
+        sync: false
+  - type: web
+    name: fd-restaurant
+    runtime: node
+    plan: free
+    rootDir: backend/restaurant-service
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+  - type: web
+    name: fd-order
+    runtime: node
+    plan: free
+    rootDir: backend/order-service
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+  - type: web
+    name: fd-delivery
+    runtime: node
+    plan: free
+    rootDir: backend/delivery-service
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 1d
+  - type: web
+    name: fd-payment
+    runtime: node
+    plan: free
+    rootDir: backend/payment-service
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: TWILIO_PHONE_NUMBER
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
