@@ -1,7 +1,7 @@
 const { Resend } = require("resend");
 require("dotenv").config();
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 /**
  * Sends an email notification using Resend.
@@ -13,6 +13,10 @@ const resend = new Resend(process.env.RESEND_API_KEY);
  * @returns {Promise<object>} - The response from Resend.
  */
 const sendEmailNotification = async (to, subject, html, text) => {
+  if (!resend) {
+    console.warn("Resend not configured; skipping email");
+    return null;
+  }
   try {
     const data = await resend.emails.send({
       from: "Swigato <onboarding@resend.dev>", // ✅ Valid test sender for Resend
