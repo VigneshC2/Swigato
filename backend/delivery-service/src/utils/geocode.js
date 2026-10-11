@@ -1,9 +1,11 @@
 import fetch from "node-fetch";
 
-const OPENCAGE_API_KEY = 'b831a2728a524c00a5c1e031e3862886'; 
+const OPENCAGE_API_KEY = process.env.OPENCAGE_API_KEY;
+const GEOCODE_COUNTRY = process.env.GEOCODE_COUNTRY || 'lk';
 
 export async function geocodeAddress(address) {
-  const url = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&countrycode=lk&key=${OPENCAGE_API_KEY}`;
+  if (!OPENCAGE_API_KEY) throw new Error('OPENCAGE_API_KEY is not set');
+  const url = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&countrycode=${GEOCODE_COUNTRY}&key=${OPENCAGE_API_KEY}`;
 
   const response = await fetch(url);
   const data = await response.json();

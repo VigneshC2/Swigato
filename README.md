@@ -88,7 +88,7 @@ The frontends read every service address from `REACT_APP_*_URL` variables and fa
 | auth | `PORT`, `MONGO_URI`, `JWT_SECRET`, `JWT_EXPIRES_IN`, `CLIENT_URL` |
 | restaurant | `PORT`, `MONGO_URI`, `JWT_SECRET` |
 | order | `PORT`, `MONGO_URI`, `JWT_SECRET` |
-| delivery | `PORT`, `MONGO_URI`, `JWT_SECRET`, `JWT_EXPIRES_IN` |
+| delivery | `PORT`, `MONGO_URI`, `JWT_SECRET`, `JWT_EXPIRES_IN`, `OPENCAGE_API_KEY`, `GEOCODE_COUNTRY` |
 | payment | `PORT`, `MONGO_URI`, `CLIENT_URL`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, `TWILIO_PHONE_NUMBER`, `RESEND_API_KEY` |
 | frontend | `REACT_APP_AUTH_URL`, `REACT_APP_RESTAURANT_URL`, `REACT_APP_ORDER_URL`, `REACT_APP_PAYMENT_URL`, `REACT_APP_STRIPE_PUBLISHABLE_KEY` |
 | delivery-frontend | `REACT_APP_DELIVERY_URL` |
@@ -131,6 +131,10 @@ Free-tier notes: Render instances sleep when idle, so the first request can take
 ├── delivery-frontend/        # delivery partner app
 └── render.yaml
 ```
+
+## Design
+
+The low-level design (data models, API tables, sequence diagrams, known gaps) is in [docs/LLD.md](docs/LLD.md).
 
 ## Roadmap
 

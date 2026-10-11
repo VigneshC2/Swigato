@@ -47,6 +47,8 @@ services:
     buildCommand: npm install
     startCommand: npm start
     envVars:
+      - key: OPENCAGE_API_KEY
+        sync: false
       - key: MONGO_URI
         sync: false
       - key: JWT_SECRET
