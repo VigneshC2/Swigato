@@ -2,6 +2,10 @@
 
 Swigato is a food ordering and delivery platform I built as a set of independent microservices. Customers browse restaurants and order food, restaurants manage their menus and orders, delivery partners accept and track deliveries live, and a super admin oversees everything.
 
+**Live demo:** [swigato-nine.vercel.app](https://swigato-nine.vercel.app)
+
+> The backend runs on free-tier hosting and sleeps when idle, so the first request after a quiet period can take up to a minute. Payments run in Stripe test mode: use card `4242 4242 4242 4242`, any future expiry, any CVC.
+
 **Author:** Vignesh Chaurasia · [@VigneshC2](https://github.com/VigneshC2)
 
 ---
